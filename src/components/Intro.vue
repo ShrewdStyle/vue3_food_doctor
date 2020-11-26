@@ -30,6 +30,7 @@ h1 {
 .introText {
   max-width: 1000px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .btnContainer {

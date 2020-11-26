@@ -10,16 +10,29 @@
       </div>
     </div>
     <div id="q2">
-      <h1></h1>
+      <Vit-A 
+      :questions="questions"
+      :foodQ="foodQuantity"
+      @food-increase="increaseQty"
+      @food-decrease="decreaseQty"
+      ></Vit-A>
     </div>
   </div>
 </template>
 
 <script>
+
+import VitA from './Vitamins/VitA'
+
 export default {
+
+  components: {
+    VitA
+  },
   data() {
     return {
       results: [],
+      foodQuantity: 0,
       questions: [
         {
           id: 1,
@@ -33,23 +46,34 @@ export default {
         },
         {
           id: 2,
-          question: "",
+          question: "On a weekly basis, select how many times a week you might have the foods shown below for a meal",
         },
       ],
     };
   },
   methods: {
-    checkData() {
-      console.log(this.questions[0].question);
+    increaseQty() {
+      // return this.foodQuantity ++
+      
     },
+    decreaseQty() {
+      if (this.foodQuantity <= 0){
+        return 0
+      }
+      else {
+        return this.foodQuantity --
+      }
+    }
   },
 };
 </script>
 
-<style scoped>
+<style>
+
 .container {
   text-align: center;
-  margin-top: 12vh;
+  margin-top: 10vh;
+  padding: 1rem 4rem;
 }
 
 .options {
@@ -66,4 +90,27 @@ export default {
 .optionBtn:hover {
   cursor: pointer;
 }
+
+.foodContainer {
+  padding: 4rem;
+}
+
+.item {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.amount {
+  display: flex;
+}
+
+.amountNumber {
+  padding: 0 0.5rem;
+}
+
+.itemName {
+  padding: 0 .5rem;
+  min-width: 150px;
+}
+
 </style>
