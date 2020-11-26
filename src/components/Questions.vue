@@ -1,11 +1,16 @@
 <template>
   <div class="container">
-    <h1>{{ questions[0].question }}</h1>
-    <div class="options">
-      <button class="optionBtn">{{ questions[0].answers.A }}</button>
-      <button class="optionBtn">{{ questions[0].answers.B }}</button>
-      <button class="optionBtn">{{ questions[0].answers.C }}</button>
-      <button class="optionBtn">{{ questions[0].answers.D }}</button>
+    <div id="q1">
+      <h1>{{ questions[0].question }}</h1>
+      <div class="options">
+        <button class="optionBtn">{{ questions[0].answers.A }}</button>
+        <button class="optionBtn">{{ questions[0].answers.B }}</button>
+        <button class="optionBtn">{{ questions[0].answers.C }}</button>
+        <button class="optionBtn">{{ questions[0].answers.D }}</button>
+      </div>
+    </div>
+    <div id="q2">
+      <h1></h1>
     </div>
   </div>
 </template>
@@ -25,6 +30,10 @@ export default {
             C: "3-4 glasses",
             D: "5+ glasses",
           },
+        },
+        {
+          id: 2,
+          question: "",
         },
       ],
     };
