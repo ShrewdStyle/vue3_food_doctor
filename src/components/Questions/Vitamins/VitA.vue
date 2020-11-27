@@ -55,6 +55,10 @@
         <button class="btnIncrease" @click="foodIncrease('rpCounter')">+</button>
       </div>
     </div>
+    <div class="buttons">
+      <button class="prevQ">Back</button>
+      <button class="nextQ">Next</button>
+    </div>
   </div>
 </template>
 

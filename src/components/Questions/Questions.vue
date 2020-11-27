@@ -11,11 +11,23 @@
     </div>
     <div id="q2">
       <Vit-A :questions="questions"></Vit-A>
+    </div>
+    <div id="q3">
       <Vit-B :questions="questions"></Vit-B>
+    </div>
+    <div id="q4">
       <Vit-C :questions="questions"></Vit-C>
+    </div>
+    <div id="q5">
       <Vit-D :questions="questions"></Vit-D>
+    </div>
+    <div id="q6">
       <Vit-E :questions="questions"></Vit-E>
+    </div>
+    <div id="q7">
       <Vit-K :questions="questions"></Vit-K>
+    </div>
+    <div id="q8">
       <Vit-Calc :questions="questions"></Vit-Calc>
     </div>
   </div>
@@ -45,6 +57,7 @@ export default {
   data() {
     return {
       results: [],
+      isActive: false,
       questions: [
         {
           id: 1,
@@ -110,6 +123,14 @@ export default {
 .itemName {
   padding: 0 .5rem;
   min-width: 200px;
+}
+
+.buttons {
+  padding: 2rem;
+}
+
+.prevQ, .nextQ {
+  margin: 0 .5rem;
 }
 
 </style>
