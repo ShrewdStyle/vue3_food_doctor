@@ -11,3 +11,5 @@ Vitamin E - Nuts, Seeds, Vegetable Oil
 Vitamin K - Broccoli, Spinach
 
 Calcium - Milk, Cheese, Yoghurt
+
+** Duplicates to take into account (Oranges, Eggs, Broccoli, Nuts, Spinach, Milk, Cheese, Yoghurt)

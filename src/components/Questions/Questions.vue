@@ -10,12 +10,13 @@
       </div>
     </div>
     <div id="q2">
-      <Vit-A 
-      :questions="questions"
-      :foodQ="foodQuantity"
-      @food-increase="increaseQty"
-      @food-decrease="decreaseQty"
-      ></Vit-A>
+      <Vit-A :questions="questions"></Vit-A>
+      <Vit-B :questions="questions"></Vit-B>
+      <Vit-C :questions="questions"></Vit-C>
+      <Vit-D :questions="questions"></Vit-D>
+      <Vit-E :questions="questions"></Vit-E>
+      <Vit-K :questions="questions"></Vit-K>
+      <Vit-Calc :questions="questions"></Vit-Calc>
     </div>
   </div>
 </template>
@@ -23,16 +24,27 @@
 <script>
 
 import VitA from './Vitamins/VitA'
+import VitB from './Vitamins/VitB'
+import VitC from './Vitamins/VitC'
+import VitD from './Vitamins/VitD'
+import VitE from './Vitamins/VitE'
+import VitK from './Vitamins/VitK'
+import VitCalc from './Vitamins/VitCalc'
 
 export default {
 
   components: {
-    VitA
+    VitA,
+    VitB,
+    VitC,
+    VitD,
+    VitE,
+    VitK,
+    VitCalc,
   },
   data() {
     return {
       results: [],
-      foodQuantity: 0,
       questions: [
         {
           id: 1,
@@ -51,20 +63,7 @@ export default {
       ],
     };
   },
-  methods: {
-    increaseQty() {
-      // return this.foodQuantity ++
-      
-    },
-    decreaseQty() {
-      if (this.foodQuantity <= 0){
-        return 0
-      }
-      else {
-        return this.foodQuantity --
-      }
-    }
-  },
+  methods: {},
 };
 </script>
 
@@ -110,7 +109,7 @@ export default {
 
 .itemName {
   padding: 0 .5rem;
-  min-width: 150px;
+  min-width: 200px;
 }
 
 </style>
