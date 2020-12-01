@@ -1,33 +1,34 @@
 <template>
   <div class="container">
-    <div id="q1">
+    <div id="q1" v-if="!q1Active" ref="q1">
       <h1>{{ questions[0].question }}</h1>
       <div class="options">
         <button class="optionBtn">{{ questions[0].answers.A }}</button>
         <button class="optionBtn">{{ questions[0].answers.B }}</button>
         <button class="optionBtn">{{ questions[0].answers.C }}</button>
         <button class="optionBtn">{{ questions[0].answers.D }}</button>
+        <button @click="testNext">Test Switch</button>
       </div>
     </div>
-    <div id="q2">
+    <div id="q2" v-if="isActive">
       <Vit-A :questions="questions"></Vit-A>
     </div>
-    <div id="q3">
+    <div id="q3" v-if="isActive">
       <Vit-B :questions="questions"></Vit-B>
     </div>
-    <div id="q4">
+    <div id="q4" v-if="isActive">
       <Vit-C :questions="questions"></Vit-C>
     </div>
-    <div id="q5">
+    <div id="q5" v-if="isActive">
       <Vit-D :questions="questions"></Vit-D>
     </div>
-    <div id="q6">
+    <div id="q6" v-if="isActive">
       <Vit-E :questions="questions"></Vit-E>
     </div>
-    <div id="q7">
+    <div id="q7" v-if="isActive">
       <Vit-K :questions="questions"></Vit-K>
     </div>
-    <div id="q8">
+    <div id="q8" v-if="isActive">
       <Vit-Calc :questions="questions"></Vit-Calc>
     </div>
   </div>
@@ -76,7 +77,11 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    testNext() {
+      this.$refs.q1 = this.isActive = false
+    }
+  },
 };
 </script>
 
