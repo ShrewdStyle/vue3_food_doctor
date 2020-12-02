@@ -16,11 +16,119 @@
           <div class="itemName">{{ v.name }}</div>
           <div class="itemPhoto"></div>
           <div class="amount">
-            <button class="btnDecrease" @click="foodDecrease(v.id - 1)">
+            <button class="btnDecrease" @click="foodDecreaseA(v.id - 1)">
               -
             </button>
             <div class="amountNumber">{{ v.counter }}</div>
-            <button class="btnIncrease" @click="foodIncrease(v.id - 1)">
+            <button class="btnIncrease" @click="foodIncreaseA(v.id - 1)">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="q3" v-if="!isActive">
+      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="foodContainer" v-for="v in vitBFoods" :key="v.id">
+        <div class="item">
+          <div class="itemName">{{ v.name }}</div>
+          <div class="itemPhoto"></div>
+          <div class="amount">
+            <button class="btnDecrease">
+              -
+            </button>
+            <div class="amountNumber">{{ v.counter }}</div>
+            <button class="btnIncrease">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="q4" v-if="!isActive">
+      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="foodContainer" v-for="v in vitCFoods" :key="v.id">
+        <div class="item">
+          <div class="itemName">{{ v.name }}</div>
+          <div class="itemPhoto"></div>
+          <div class="amount">
+            <button class="btnDecrease">
+              -
+            </button>
+            <div class="amountNumber">{{ v.counter }}</div>
+            <button class="btnIncrease">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="q5" v-if="!isActive">
+      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="foodContainer" v-for="v in vitDFoods" :key="v.id">
+        <div class="item">
+          <div class="itemName">{{ v.name }}</div>
+          <div class="itemPhoto"></div>
+          <div class="amount">
+            <button class="btnDecrease">
+              -
+            </button>
+            <div class="amountNumber">{{ v.counter }}</div>
+            <button class="btnIncrease">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="q6" v-if="!isActive">
+      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="foodContainer" v-for="v in vitEFoods" :key="v.id">
+        <div class="item">
+          <div class="itemName">{{ v.name }}</div>
+          <div class="itemPhoto"></div>
+          <div class="amount">
+            <button class="btnDecrease">
+              -
+            </button>
+            <div class="amountNumber">{{ v.counter }}</div>
+            <button class="btnIncrease">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="q7" v-if="!isActive">
+      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="foodContainer" v-for="v in vitKFoods" :key="v.id">
+        <div class="item">
+          <div class="itemName">{{ v.name }}</div>
+          <div class="itemPhoto"></div>
+          <div class="amount">
+            <button class="btnDecrease">
+              -
+            </button>
+            <div class="amountNumber">{{ v.counter }}</div>
+            <button class="btnIncrease">
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="q8" v-if="!isActive">
+      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="foodContainer" v-for="v in vitCalcFoods" :key="v.id">
+        <div class="item">
+          <div class="itemName">{{ v.name }}</div>
+          <div class="itemPhoto"></div>
+          <div class="amount">
+            <button class="btnDecrease">
+              -
+            </button>
+            <div class="amountNumber">{{ v.counter }}</div>
+            <button class="btnIncrease">
               +
             </button>
           </div>
@@ -85,13 +193,115 @@ export default {
           counter: 0,
         },
       ],
+      vitBFoods: [
+        {
+          id: 1,
+          name: "Peas",
+          counter: 0,
+        },
+        {
+          id: 2,
+          name: "Bananas",
+          counter: 0,
+        },
+        {
+          id: 3,
+          name: "Whole grain bread",
+          counter: 0,
+        },
+      ],
+      vitCFoods: [
+        {
+          id: 1,
+          name: "Oranges",
+          counter: 0,
+        },
+        {
+          id: 2,
+          name: "Peppers",
+          counter: 0,
+        },
+        {
+          id: 3,
+          name: "Strawberries",
+          counter: 0,
+        },
+        {
+          id: 4,
+          name: "Potatoes",
+          counter: 0,
+        },
+        {
+          id: 5,
+          name: "Brussels Sprouts",
+          counter: 0,
+        },
+      ],
+      vitDFoods: [
+        {
+          id: 1,
+          name: "Red Meat",
+          counter: 0,
+        },
+        {
+          id: 2,
+          name: "Fish",
+          counter: 0,
+        },
+      ],
+      vitEFoods: [
+        {
+          id: 1,
+          name: "Nuts",
+          counter: 0,
+        },
+        {
+          id: 2,
+          name: "Seeds",
+          counter: 0,
+        },
+        {
+          id: 3,
+          name: "Vegetable Oil",
+          counter: 0,
+        },
+      ],
+      vitKFoods: [
+        {
+          id: 1,
+          name: "Broccoli",
+          counter: 0,
+        },
+        {
+          id: 2,
+          name: "Spinach",
+          counter: 0,
+        },
+      ],
+      vitCalcFoods: [
+        {
+          id: 1,
+          name: "Milk",
+          counter: 0,
+        },
+        {
+          id: 2,
+          name: "Cheese",
+          counter: 0,
+        },
+        {
+          id: 3,
+          name: "Yoghurt",
+          counter: 0,
+        },
+      ],
     };
   },
   methods: {
-    foodIncrease(val) {
+    foodIncreaseA(val) {
       this.vitAFoods[val].counter += 1;
     },
-    foodDecrease(val) {
+    foodDecreaseA(val) {
       if (this.vitAFoods[val].counter <= 0) {
         return 0;
       } else {
