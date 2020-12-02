@@ -1,15 +1,23 @@
 <template>
   <div class="container">
-    <div id="q1" v-if="!isActive">
+    <div id="q1" v-if="!q1Active">
       <h1 class="questionTitle">{{ questions[0].question }}</h1>
       <div class="options">
-        <button class="optionBtn">{{ questions[0].answers.A }}</button>
-        <button class="optionBtn">{{ questions[0].answers.B }}</button>
-        <button class="optionBtn">{{ questions[0].answers.C }}</button>
-        <button class="optionBtn">{{ questions[0].answers.D }}</button>
+        <button class="optionBtn" @click="nextQuestion1A">
+          {{ questions[0].answers.A }}
+        </button>
+        <button class="optionBtn" @click="nextQuestion1B">
+          {{ questions[0].answers.B }}
+        </button>
+        <button class="optionBtn" @click="nextQuestion1C">
+          {{ questions[0].answers.C }}
+        </button>
+        <button class="optionBtn" @click="nextQuestion1D">
+          {{ questions[0].answers.D }}
+        </button>
       </div>
     </div>
-    <div id="q2" v-if="!isActive">
+    <div id="q2" v-if="q2Active">
       <h1 class="questionTitle">{{ questions[1].question }}</h1>
       <div class="foodContainer" v-for="v in vitAFoods" :key="v.id">
         <div class="item">
@@ -26,113 +34,141 @@
           </div>
         </div>
       </div>
+      <div class="buttons">
+        <button class="prevQ" @click="prevQuestion1">Back</button>
+        <button class="nextQ" @click="nextQuestion2">Next</button>
+      </div>
     </div>
-    <div id="q3" v-if="!isActive">
+    <div id="q3" v-if="q3Active">
       <h1 class="questionTitle">{{ questions[1].question }}</h1>
       <div class="foodContainer" v-for="v in vitBFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
           <div class="itemPhoto"></div>
           <div class="amount">
-            <button class="btnDecrease">
+            <button class="btnDecrease" @click="foodDecreaseB(v.id - 1)">
               -
             </button>
             <div class="amountNumber">{{ v.counter }}</div>
-            <button class="btnIncrease">
+            <button class="btnIncrease" @click="foodIncreaseB(v.id - 1)">
               +
             </button>
           </div>
         </div>
       </div>
+      <div class="buttons">
+        <button class="prevQ" @click="prevQuestion2">Back</button>
+        <button class="nextQ" @click="nextQuestion3">Next</button>
+      </div>
     </div>
-    <div id="q4" v-if="!isActive">
+    <div id="q4" v-if="q4Active">
       <h1 class="questionTitle">{{ questions[1].question }}</h1>
       <div class="foodContainer" v-for="v in vitCFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
           <div class="itemPhoto"></div>
           <div class="amount">
-            <button class="btnDecrease">
+            <button class="btnDecrease" @click="foodDecreaseC(v.id - 1)">
               -
             </button>
             <div class="amountNumber">{{ v.counter }}</div>
-            <button class="btnIncrease">
+            <button class="btnIncrease" @click="foodIncreaseC(v.id - 1)">
               +
             </button>
           </div>
         </div>
       </div>
+      <div class="buttons">
+        <button class="prevQ" @click="prevQuestion3">Back</button>
+        <button class="nextQ" @click="nextQuestion4">Next</button>
+      </div>
     </div>
-    <div id="q5" v-if="!isActive">
+    <div id="q5" v-if="q5Active">
       <h1 class="questionTitle">{{ questions[1].question }}</h1>
       <div class="foodContainer" v-for="v in vitDFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
           <div class="itemPhoto"></div>
           <div class="amount">
-            <button class="btnDecrease">
+            <button class="btnDecrease" @click="foodDecreaseD(v.id - 1)">
               -
             </button>
             <div class="amountNumber">{{ v.counter }}</div>
-            <button class="btnIncrease">
+            <button class="btnIncrease" @click="foodIncreaseD(v.id - 1)">
               +
             </button>
           </div>
         </div>
       </div>
+      <div class="buttons">
+        <button class="prevQ" @click="prevQuestion4">Back</button>
+        <button class="nextQ" @click="nextQuestion5">Next</button>
+      </div>
     </div>
-    <div id="q6" v-if="!isActive">
+    <div id="q6" v-if="q6Active">
       <h1 class="questionTitle">{{ questions[1].question }}</h1>
       <div class="foodContainer" v-for="v in vitEFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
           <div class="itemPhoto"></div>
           <div class="amount">
-            <button class="btnDecrease">
+            <button class="btnDecrease" @click="foodDecreaseE(v.id - 1)">
               -
             </button>
             <div class="amountNumber">{{ v.counter }}</div>
-            <button class="btnIncrease">
+            <button class="btnIncrease" @click="foodIncreaseE(v.id - 1)">
               +
             </button>
           </div>
         </div>
       </div>
+      <div class="buttons">
+        <button class="prevQ" @click="prevQuestion5">Back</button>
+        <button class="nextQ" @click="nextQuestion6">Next</button>
+      </div>
     </div>
-    <div id="q7" v-if="!isActive">
+    <div id="q7" v-if="q7Active">
       <h1 class="questionTitle">{{ questions[1].question }}</h1>
       <div class="foodContainer" v-for="v in vitKFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
           <div class="itemPhoto"></div>
           <div class="amount">
-            <button class="btnDecrease">
+            <button class="btnDecrease" @click="foodDecreaseK(v.id - 1)">
               -
             </button>
             <div class="amountNumber">{{ v.counter }}</div>
-            <button class="btnIncrease">
+            <button class="btnIncrease" @click="foodIncreaseK(v.id - 1)">
               +
             </button>
           </div>
         </div>
       </div>
+      <div class="buttons">
+        <button class="prevQ" @click="prevQuestion6">Back</button>
+        <button class="nextQ" @click="nextQuestion7">Next</button>
+      </div>
     </div>
-    <div id="q8" v-if="!isActive">
+    <div id="q8" v-if="q8Active">
       <h1 class="questionTitle">{{ questions[1].question }}</h1>
       <div class="foodContainer" v-for="v in vitCalcFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
           <div class="itemPhoto"></div>
           <div class="amount">
-            <button class="btnDecrease">
+            <button class="btnDecrease" @click="foodDecreaseCalc(v.id - 1)">
               -
             </button>
             <div class="amountNumber">{{ v.counter }}</div>
-            <button class="btnIncrease">
+            <button class="btnIncrease" @click="foodIncreaseCalc(v.id - 1)">
               +
             </button>
           </div>
         </div>
+      </div>
+      <div class="buttons">
+        <button class="prevQ" @click="prevQuestion7">Back</button>
+        <button class="nextQ" @click="finishQuestion">Finish</button>
       </div>
     </div>
   </div>
@@ -143,7 +179,17 @@ export default {
   data() {
     return {
       results: [],
-      isActive: false,
+      q1Active: false,
+      q2Active: false,
+      q3Active: false,
+      q4Active: false,
+      q5Active: false,
+      q6Active: false,
+      q7Active: false,
+      q8Active: false,
+
+      // Questions
+
       questions: [
         {
           id: 1,
@@ -160,6 +206,8 @@ export default {
           question:
             "On a weekly basis, select how many times a week you might have the foods shown below for a meal",
         },
+
+        // Question Foods
       ],
       vitAFoods: [
         {
@@ -298,6 +346,127 @@ export default {
     };
   },
   methods: {
+    // Next Questions
+
+    nextQuestion1A() {
+      this.q1Active = true;
+      this.q2Active = true;
+      this.results.push(0);
+    },
+    nextQuestion1B() {
+      this.q1Active = true;
+      this.q2Active = true;
+      this.results.push(2);
+    },
+    nextQuestion1C() {
+      this.q1Active = true;
+      this.q2Active = true;
+      this.results.push(4);
+    },
+    nextQuestion1D() {
+      this.q1Active = true;
+      this.q2Active = true;
+      this.results.push(6);
+    },
+    nextQuestion2() {
+      this.q2Active = false;
+      this.q3Active = true;
+      this.results.push([
+        { eggs: this.vitAFoods[0].counter },
+        { fish: this.vitAFoods[1].counter },
+        { liver: this.vitAFoods[2].counter },
+        { carrots: this.vitAFoods[3].counter },
+        { sweetPotatoe: this.vitAFoods[4].counter },
+        { redPeppers: this.vitAFoods[5].counter },
+      ]);
+    },
+    nextQuestion3() {
+      this.q3Active = false;
+      this.q4Active = true;
+      this.results.push([
+        { peas: this.vitBFoods[0].counter },
+        { bananas: this.vitBFoods[1].counter },
+        { wholeGrainBread: this.vitBFoods[2].counter },
+      ]);
+    },
+    nextQuestion4() {
+      this.q4Active = false;
+      this.q5Active = true;
+      this.results.push([
+        { oranges: this.vitCFoods[0].counter },
+        { peppers: this.vitCFoods[1].counter },
+        { strawberries: this.vitCFoods[2].counter },
+        { potatoes: this.vitCFoods[3].counter },
+        { brusselsSprouts: this.vitCFoods[4].counter },
+      ]);
+    },
+    nextQuestion5() {
+      this.q5Active = false;
+      this.q6Active = true;
+      this.results.push([
+        { redMeat: this.vitDFoods[0].counter },
+        { fish: this.vitDFoods[1].counter },
+      ]);
+    },
+    nextQuestion6() {
+      this.q6Active = false;
+      this.q7Active = true;
+      this.results.push([
+        { nuts: this.vitEFoods[0].counter },
+        { seeds: this.vitEFoods[1].counter },
+        { vegetableOil: this.vitEFoods[2].counter },
+      ]);
+    },
+    nextQuestion7() {
+      this.q7Active = false;
+      this.q8Active = true;
+      this.results.push([
+        { broccoli: this.vitKFoods[0].counter },
+        { spinach: this.vitKFoods[1].counter },
+      ]);
+    },
+    finishQuestion() {
+      this.results.push([
+        { milk: this.vitCalcFoods[0].counter },
+        { cheese: this.vitCalcFoods[1].counter },
+        { yoghurt: this.vitCalcFoods[1].counter },
+      ]);
+      console.log(this.results);
+    },
+
+    // Previous Questions
+
+    prevQuestion1() {
+      this.q1Active = false;
+      this.q2Active = false;
+    },
+    prevQuestion2() {
+      this.q2Active = true;
+      this.q3Active = false;
+    },
+    prevQuestion3() {
+      this.q3Active = true;
+      this.q4Active = false;
+    },
+    prevQuestion4() {
+      this.q4Active = true;
+      this.q5Active = false;
+    },
+    prevQuestion5() {
+      this.q5Active = true;
+      this.q6Active = false;
+    },
+    prevQuestion6() {
+      this.q6Active = true;
+      this.q7Active = false;
+    },
+    prevQuestion7() {
+      this.q7Active = true;
+      this.q8Active = false;
+    },
+
+    // Question Counters
+
     foodIncreaseA(val) {
       this.vitAFoods[val].counter += 1;
     },
@@ -306,6 +475,66 @@ export default {
         return 0;
       } else {
         this.vitAFoods[val].counter -= 1;
+      }
+    },
+    foodIncreaseB(val) {
+      this.vitBFoods[val].counter += 1;
+    },
+    foodDecreaseB(val) {
+      if (this.vitBFoods[val].counter <= 0) {
+        return 0;
+      } else {
+        this.vitBFoods[val].counter -= 1;
+      }
+    },
+    foodIncreaseC(val) {
+      this.vitCFoods[val].counter += 1;
+    },
+    foodDecreaseC(val) {
+      if (this.vitCFoods[val].counter <= 0) {
+        return 0;
+      } else {
+        this.vitCFoods[val].counter -= 1;
+      }
+    },
+    foodIncreaseD(val) {
+      this.vitDFoods[val].counter += 1;
+    },
+    foodDecreaseD(val) {
+      if (this.vitDFoods[val].counter <= 0) {
+        return 0;
+      } else {
+        this.vitDFoods[val].counter -= 1;
+      }
+    },
+    foodIncreaseE(val) {
+      this.vitEFoods[val].counter += 1;
+    },
+    foodDecreaseE(val) {
+      if (this.vitEFoods[val].counter <= 0) {
+        return 0;
+      } else {
+        this.vitEFoods[val].counter -= 1;
+      }
+    },
+    foodIncreaseK(val) {
+      this.vitKFoods[val].counter += 1;
+    },
+    foodDecreaseK(val) {
+      if (this.vitKFoods[val].counter <= 0) {
+        return 0;
+      } else {
+        this.vitKFoods[val].counter -= 1;
+      }
+    },
+    foodIncreaseCalc(val) {
+      this.vitCalcFoods[val].counter += 1;
+    },
+    foodDecreaseCalc(val) {
+      if (this.vitCalcFoods[val].counter <= 0) {
+        return 0;
+      } else {
+        this.vitCalcFoods[val].counter -= 1;
       }
     },
   },
@@ -327,15 +556,6 @@ export default {
   padding: 2rem;
   display: inline-grid;
   grid-template-columns: repeat(2, 1fr);
-}
-
-.optionBtn {
-  padding: 0.7rem 1.5rem;
-  width: 150px;
-  margin: 1rem;
-}
-.optionBtn:hover {
-  cursor: pointer;
 }
 
 .foodContainer {
@@ -367,5 +587,6 @@ export default {
 .prevQ,
 .nextQ {
   margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
 }
 </style>

@@ -22,4 +22,13 @@ export default {
   box-sizing: border-box;
   line-height: 1.8;
 }
+
+.optionBtn {
+  padding: 0.7rem 1.5rem;
+  width: 150px;
+  margin: 1rem;
+}
+.optionBtn:hover {
+  cursor: pointer;
+}
 </style>
