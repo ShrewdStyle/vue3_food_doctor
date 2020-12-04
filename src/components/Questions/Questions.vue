@@ -171,11 +171,18 @@
         <button class="nextQ" @click="finishQuestion">Finish</button>
       </div>
     </div>
+    <question-results v-if="resultsActive" :results="results"></question-results>
   </div>
 </template>
 
 <script>
+
+import questionResults from '../Results';
+
 export default {
+  components: {
+    questionResults
+  },
   data() {
     return {
       results: [],
@@ -187,6 +194,7 @@ export default {
       q6Active: false,
       q7Active: false,
       q8Active: false,
+      resultsActive: false,
 
       // Questions
 
@@ -431,7 +439,8 @@ export default {
         { cheese: this.vitCalcFoods[1].counter },
         { yoghurt: this.vitCalcFoods[1].counter },
       ]);
-      console.log(this.results);
+      this.q8Active = false;
+      this.resultsActive = true;
     },
 
     // Previous Questions
@@ -439,30 +448,37 @@ export default {
     prevQuestion1() {
       this.q1Active = false;
       this.q2Active = false;
+      this.results.pop()
     },
     prevQuestion2() {
       this.q2Active = true;
       this.q3Active = false;
+      this.results.pop()
     },
     prevQuestion3() {
       this.q3Active = true;
       this.q4Active = false;
+      this.results.pop()
     },
     prevQuestion4() {
       this.q4Active = true;
       this.q5Active = false;
+      this.results.pop()
     },
     prevQuestion5() {
       this.q5Active = true;
       this.q6Active = false;
+      this.results.pop()
     },
     prevQuestion6() {
       this.q6Active = true;
       this.q7Active = false;
+      this.results.pop()
     },
     prevQuestion7() {
       this.q7Active = true;
       this.q8Active = false;
+      this.results.pop()
     },
 
     // Question Counters
