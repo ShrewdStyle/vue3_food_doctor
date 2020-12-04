@@ -171,7 +171,7 @@
         <button class="nextQ" @click="finishQuestion">Finish</button>
       </div>
     </div>
-    <question-results v-if="resultsActive" :results="results"></question-results>
+    <question-results v-if="resultsActive" :results="resultsText"></question-results>
   </div>
 </template>
 
@@ -186,6 +186,7 @@ export default {
   data() {
     return {
       results: [],
+      resultsText: '',
       q1Active: false,
       q2Active: false,
       q3Active: false,
@@ -441,6 +442,13 @@ export default {
       ]);
       this.q8Active = false;
       this.resultsActive = true;
+
+      if (this.results[0] < 3){
+        this.resultsText = 'Drink more water puto!'
+      }
+      else {
+        this.resultsText = 'Water looking good boi!'
+      }
     },
 
     // Previous Questions
