@@ -171,22 +171,38 @@
         <button class="nextQ" @click="finishQuestion">Finish</button>
       </div>
     </div>
-    <question-results v-if="resultsActive" :results="resultsText"></question-results>
+    <question-results
+      v-if="resultsActive"
+      :resultsWater="resultsWater"
+      :resultsA="resultsA"
+      :resultsB="resultsB"
+      :resultsC="resultsC"
+      :resultsD="resultsD"
+      :resultsE="resultsE"
+      :resultsK="resultsK"
+      :resultsCalc="resultsCalc"
+    ></question-results>
   </div>
 </template>
 
 <script>
-
-import questionResults from '../Results';
+import questionResults from "../Results";
 
 export default {
   components: {
-    questionResults
+    questionResults,
   },
   data() {
     return {
       results: [],
-      resultsText: '',
+      resultsWater: "",
+      resultsA: "",
+      resultsB: "",
+      resultsC: "",
+      resultsD: "",
+      resultsE: "",
+      resultsK: "",
+      resultsCalc: "",
       q1Active: false,
       q2Active: false,
       q3Active: false,
@@ -226,26 +242,21 @@ export default {
         },
         {
           id: 2,
-          name: "Fish",
-          counter: 0,
-        },
-        {
-          id: 3,
           name: "Liver",
           counter: 0,
         },
         {
-          id: 4,
+          id: 3,
           name: "Carrots",
           counter: 0,
         },
         {
-          id: 5,
+          id: 4,
           name: "Sweet Potatoes",
           counter: 0,
         },
         {
-          id: 6,
+          id: 5,
           name: "Red Peppers",
           counter: 0,
         },
@@ -382,11 +393,10 @@ export default {
       this.q3Active = true;
       this.results.push([
         { eggs: this.vitAFoods[0].counter },
-        { fish: this.vitAFoods[1].counter },
-        { liver: this.vitAFoods[2].counter },
-        { carrots: this.vitAFoods[3].counter },
-        { sweetPotatoe: this.vitAFoods[4].counter },
-        { redPeppers: this.vitAFoods[5].counter },
+        { liver: this.vitAFoods[1].counter },
+        { carrots: this.vitAFoods[2].counter },
+        { sweetPotatoe: this.vitAFoods[3].counter },
+        { redPeppers: this.vitAFoods[4].counter },
       ]);
     },
     nextQuestion3() {
@@ -443,11 +453,87 @@ export default {
       this.q8Active = false;
       this.resultsActive = true;
 
-      if (this.results[0] < 3){
-        this.resultsText = 'Drink more water puto!'
+      let vitAtotal =
+        this.results[1][0].eggs +
+        this.results[1][1].liver +
+        this.results[1][2].carrots +
+        this.results[1][3].sweetPotatoe +
+        this.results[1][4].redPeppers;
+      let vitBtotal =
+        this.results[2][0].peas +
+        this.results[2][1].bananas +
+        this.results[2][2].wholeGrainBread;
+      let vitCtotal =
+        this.results[3][0].oranges +
+        this.results[3][1].peppers +
+        this.results[3][2].strawberries +
+        this.results[3][3].potatoes +
+        this.results[3][4].brusselsSprouts;
+      let vitDtotal = this.results[4][0].redMeat + this.results[4][1].fish;
+      let vitEtotal =
+        this.results[5][0].nuts +
+        this.results[5][1].seeds +
+        this.results[5][2].vegetableOil;
+      let vitKtotal = this.results[6][0].broccoli + this.results[6][1].spinach;
+      let vitCalctotal =
+        this.results[7][0].milk +
+        this.results[7][1].cheese +
+        this.results[7][2].yoghurt;
+
+      console.log("VitA : " + vitAtotal);
+      console.log("VitB : " + vitBtotal);
+      console.log("VitC : " + vitCtotal);
+      console.log("VitD : " + vitDtotal);
+      console.log("VitE : " + vitEtotal);
+      console.log("VitK : " + vitKtotal);
+      console.log("VitCalc : " + vitCalctotal);
+
+      if (this.results[0] < 3) {
+        this.resultsWater = "Low";
+      } else {
+        this.resultsWater = "Good";
       }
-      else {
-        this.resultsText = 'Water looking good boi!'
+
+      if (vitAtotal < 15) {
+        this.resultsA = "Low";
+      } else {
+        this.resultsA = "Good";
+      }
+
+      if (vitBtotal < 10) {
+        this.resultsB = "Low";
+      } else {
+        this.resultsB = "Good";
+      }
+
+      if (vitCtotal < 10) {
+        this.resultsC = "Low";
+      } else {
+        this.resultsC = "Good";
+      }
+
+      if (vitDtotal < 5) {
+        this.resultsD = "Low";
+      } else {
+        this.resultsD = "Good";
+      }
+
+      if (vitEtotal < 5) {
+        this.resultsE = "Low";
+      } else {
+        this.resultsE = "Good";
+      }
+
+      if (vitKtotal < 5) {
+        this.resultsK = "Low";
+      } else {
+        this.resultsK = "Good";
+      }
+
+      if (vitCalctotal < 8) {
+        this.resultsCalc = "Low";
+      } else {
+        this.resultsCalc = "Good";
       }
     },
 
@@ -456,37 +542,37 @@ export default {
     prevQuestion1() {
       this.q1Active = false;
       this.q2Active = false;
-      this.results.pop()
+      this.results.pop();
     },
     prevQuestion2() {
       this.q2Active = true;
       this.q3Active = false;
-      this.results.pop()
+      this.results.pop();
     },
     prevQuestion3() {
       this.q3Active = true;
       this.q4Active = false;
-      this.results.pop()
+      this.results.pop();
     },
     prevQuestion4() {
       this.q4Active = true;
       this.q5Active = false;
-      this.results.pop()
+      this.results.pop();
     },
     prevQuestion5() {
       this.q5Active = true;
       this.q6Active = false;
-      this.results.pop()
+      this.results.pop();
     },
     prevQuestion6() {
       this.q6Active = true;
       this.q7Active = false;
-      this.results.pop()
+      this.results.pop();
     },
     prevQuestion7() {
       this.q7Active = true;
       this.q8Active = false;
-      this.results.pop()
+      this.results.pop();
     },
 
     // Question Counters
