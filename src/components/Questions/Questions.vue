@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div id="q1" v-if="!q1Active">
-      <h1 class="questionTitle">{{ questions[0].question }}</h1>
+      <div class="questionTitle">{{ questions[0].question }}</div>
       <div class="options">
         <button class="optionBtn" @click="nextQuestion1A">
           {{ questions[0].answers.A }}
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div id="q2" v-if="q2Active">
-      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="questionTitle">{{ questions[1].question }}</div>
       <div class="foodContainer" v-for="v in vitAFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div id="q3" v-if="q3Active">
-      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="questionTitle">{{ questions[1].question }}</div>
       <div class="foodContainer" v-for="v in vitBFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -62,7 +62,7 @@
       </div>
     </div>
     <div id="q4" v-if="q4Active">
-      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="questionTitle">{{ questions[1].question }}</div>
       <div class="foodContainer" v-for="v in vitCFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -84,7 +84,7 @@
       </div>
     </div>
     <div id="q5" v-if="q5Active">
-      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="questionTitle">{{ questions[1].question }}</div>
       <div class="foodContainer" v-for="v in vitDFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -106,7 +106,7 @@
       </div>
     </div>
     <div id="q6" v-if="q6Active">
-      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="questionTitle">{{ questions[1].question }}</div>
       <div class="foodContainer" v-for="v in vitEFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -128,7 +128,7 @@
       </div>
     </div>
     <div id="q7" v-if="q7Active">
-      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="questionTitle">{{ questions[1].question }}</div>
       <div class="foodContainer" v-for="v in vitKFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -150,7 +150,7 @@
       </div>
     </div>
     <div id="q8" v-if="q8Active">
-      <h1 class="questionTitle">{{ questions[1].question }}</h1>
+      <div class="questionTitle">{{ questions[1].question }}</div>
       <div class="foodContainer" v-for="v in vitCalcFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -651,15 +651,17 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .container {
   text-align: center;
-  margin-top: 10vh;
   padding: 1rem 4rem;
+  min-height: 100vh;
 }
 
 .questionTitle {
   margin-bottom: 3rem;
+  font-size: 26px;
+  padding-top: 15vh;
 }
 
 .options {
@@ -692,6 +694,11 @@ export default {
 
 .buttons {
   padding: 2rem;
+}
+
+.btnDecrease,
+.btnIncrease {
+  width: 20px;
 }
 
 .prevQ,

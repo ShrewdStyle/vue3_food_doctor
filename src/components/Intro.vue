@@ -3,14 +3,14 @@
     <h1>Welcome to the Food Doctor application</h1>
     <div class="introText">
       <h3>
+        There has never been a more important time to keep the body healthy!
         This application will check your weekly water and vitamin intake and aim
-        to show you where you can improve. There has never been a more important
-        time to keep the body healthy!
+        to show you where you can improve.
       </h3>
       <h3>Click the button below to get started.</h3>
       <div class="btnContainer">
         <router-link to="/questions"
-          ><button class="startButton">Begin</button></router-link
+          ><button class="btnTest">Start</button></router-link
         >
       </div>
     </div>
@@ -19,17 +19,18 @@
 
 <style scoped>
 .container {
-  margin-top: 10vh;
+  height: 100vh;
 }
 
 h1 {
   text-align: center;
   padding-bottom: 1rem;
+  padding-top: 10vh;
 }
 
 .introText {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 2rem auto;
   text-align: left;
 }
 
