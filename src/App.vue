@@ -26,7 +26,6 @@ export default {
   padding: 1rem;
   margin: 0;
   line-height: 1.8;
-  /* background-color: var(--pirmaryColour); */
 }
 
 :root {
@@ -42,20 +41,5 @@ export default {
   cursor: pointer;
 }
 
-.btnTest {
-  display: inline-block;
-  padding: 1.2rem 3rem;
-  border: solid 3px var(--pirmaryColour);
-  background-color: var(--pirmaryColour);
-  cursor: pointer;
-  color: black;
-  font-size: 1.4rem;
-  transition: all 0.3s;
-  outline: none;
-  border-radius: 1000px;
-}
-.btnTest:hover {
-  background-color: transparent;
-  transform: scale(1.1) perspective(1px);
-}
+
 </style>

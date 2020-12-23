@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="resultContainer">
-      <h2>Your current results are:</h2>
+      <h2 class="resultHeader">Your results are:</h2>
       <div class="resultValue">Water intake: {{ resultsWater }}</div>
       <div class="resultValue">Vitamin A: {{ resultsA }}</div>
       <div class="resultValue">Vitamin B: {{ resultsB }}</div>
@@ -12,7 +12,7 @@
       <div class="resultValue">Calcium: {{ resultsCalc }}</div>
     </div>
     <div class="overview">
-      <h2>
+      <h2 class="overviewHeader">
         The descriptions below show the importance of each vitamin and how they
         help your body.
       </h2>
@@ -32,7 +32,7 @@
         </ul>
       </div>
       <div class="vitDesc">
-        Thiamin, also known as vitamin B1, helps:
+        Vitamin B1, also known as Thiamin helps:
         <ul>
           <li>
             The body break down and release energy from food
@@ -69,7 +69,6 @@
         Vitamin E helps maintain healthy skin and eyes, and strengthen the body's
         natural defence against illness and infection (the immune system).
       </div>
-      <br />
       <div class="vitDesc">
         Vitamin K is a group of vitamins that the body needs for blood clotting,
         helping wounds to heal.
@@ -112,10 +111,19 @@ export default {
 .resultContainer {
   padding-bottom: 5rem;
 }
+
+.resultHeader {
+  margin-bottom: 2rem;
+}
+
+.overviewHeader {
+  margin-bottom: 2rem;
+}
 .resultValue {
   padding: 0.5rem;
 }
 .vitDesc {
   text-align: left;
+  margin-bottom: 2rem;
 }
 </style>

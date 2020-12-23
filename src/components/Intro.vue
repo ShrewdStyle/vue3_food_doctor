@@ -10,7 +10,7 @@
       <h3>Click the button below to get started.</h3>
       <div class="btnContainer">
         <router-link to="/questions"
-          ><button class="btnTest">Start</button></router-link
+          ><button class="btnStart">Start</button></router-link
         >
       </div>
     </div>
@@ -40,11 +40,20 @@ h1 {
   justify-content: center;
 }
 
-.startButton {
-  padding: 0.7rem 2rem;
-  font-size: 20px;
-}
-.startButton:hover {
+.btnStart {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  border: solid 3px var(--pirmaryColour);
+  background-color: var(--pirmaryColour);
   cursor: pointer;
+  color: black;
+  font-size: 1.4rem;
+  transition: all 0.3s;
+  outline: none;
+  border-radius: 1000px;
+}
+.btnStart:hover {
+  background-color: transparent;
+  transform: scale(1.1) perspective(1px);
 }
 </style>

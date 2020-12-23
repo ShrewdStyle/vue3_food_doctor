@@ -2,6 +2,7 @@
   <div class="container">
     <div id="q1" v-if="!q1Active">
       <div class="questionTitle">{{ questions[0].question }}</div>
+      <div class="questionCount">(1 of 8)</div>
       <div class="options">
         <button class="optionBtn" @click="nextQuestion1A">
           {{ questions[0].answers.A }}
@@ -19,6 +20,7 @@
     </div>
     <div id="q2" v-if="q2Active">
       <div class="questionTitle">{{ questions[1].question }}</div>
+      <div class="questionCount">(2 of 8)</div>
       <div class="foodContainer" v-for="v in vitAFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -41,6 +43,7 @@
     </div>
     <div id="q3" v-if="q3Active">
       <div class="questionTitle">{{ questions[1].question }}</div>
+      <div class="questionCount">(3 of 8)</div>
       <div class="foodContainer" v-for="v in vitBFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -63,6 +66,7 @@
     </div>
     <div id="q4" v-if="q4Active">
       <div class="questionTitle">{{ questions[1].question }}</div>
+      <div class="questionCount">(4 of 8)</div>
       <div class="foodContainer" v-for="v in vitCFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -85,6 +89,7 @@
     </div>
     <div id="q5" v-if="q5Active">
       <div class="questionTitle">{{ questions[1].question }}</div>
+      <div class="questionCount">(5 of 8)</div>
       <div class="foodContainer" v-for="v in vitDFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -107,6 +112,7 @@
     </div>
     <div id="q6" v-if="q6Active">
       <div class="questionTitle">{{ questions[1].question }}</div>
+      <div class="questionCount">(6 of 8)</div>
       <div class="foodContainer" v-for="v in vitEFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -129,6 +135,7 @@
     </div>
     <div id="q7" v-if="q7Active">
       <div class="questionTitle">{{ questions[1].question }}</div>
+      <div class="questionCount">(7 of 8)</div>
       <div class="foodContainer" v-for="v in vitKFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -151,6 +158,7 @@
     </div>
     <div id="q8" v-if="q8Active">
       <div class="questionTitle">{{ questions[1].question }}</div>
+      <div class="questionCount">(8 of 8)</div>
       <div class="foodContainer" v-for="v in vitCalcFoods" :key="v.id">
         <div class="item">
           <div class="itemName">{{ v.name }}</div>
@@ -701,9 +709,30 @@ export default {
   width: 20px;
 }
 
+.btnDecrease:hover,
+.btnIncrease:hover {
+  cursor: pointer;
+}
+
 .prevQ,
 .nextQ {
-  margin: 0 0.5rem;
-  padding: 0.5rem 1rem;
+  margin: 0 1rem;
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  border: solid 3px var(--pirmaryColour);
+  background-color: var(--pirmaryColour);
+  cursor: pointer;
+  color: black;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  outline: none;
+  border-radius: 1000px;
+}
+
+.prevQ:hover,
+.nextQ:hover {
+  cursor: pointer;
+  background-color: transparent;
+  transform: scale(1.1) perspective(1px);
 }
 </style>
