@@ -1,13 +1,28 @@
 <template>
+  <spinner :start="isLoading.val" />
   <nav-bar></nav-bar>
   <router-view></router-view>
 </template>
 
 <script>
 import NavBar from "./components/Layout/Nav";
+import Spinner from "./UI/Spinner/Spinner";
 export default {
   components: {
     NavBar,
+    Spinner,
+  },
+  data() {
+    return {
+      isLoading: {
+        val: false,
+      },
+    };
+  },
+  provide() {
+    return {
+      mySpinner: this.isLoading,
+    };
   },
 };
 </script>
@@ -39,7 +54,8 @@ export default {
 }
 .optionBtn:hover {
   cursor: pointer;
+  background-color: var(--pirmaryColour);
+  border: 1px solid green;
+  transition: all 0.7s;
 }
-
-
 </style>

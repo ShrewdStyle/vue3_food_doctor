@@ -16,6 +16,7 @@
         <button class="optionBtn" @click="nextQuestion1D">
           {{ questions[0].answers.D }}
         </button>
+        <!-- <button @click="mySpinner.val = !mySpinner.val">Test Spinner</button> -->
       </div>
     </div>
     <div id="q2" v-if="q2Active">
@@ -200,6 +201,7 @@ export default {
   components: {
     questionResults,
   },
+  inject: ["mySpinner"],
   data() {
     return {
       results: [],
@@ -220,6 +222,7 @@ export default {
       q7Active: false,
       q8Active: false,
       resultsActive: false,
+      isLoading: false,
 
       // Questions
 
@@ -459,6 +462,7 @@ export default {
         { yoghurt: this.vitCalcFoods[1].counter },
       ]);
       this.q8Active = false;
+      // mySpinner.val = true;
       this.resultsActive = true;
 
       let vitAtotal =
