@@ -462,7 +462,11 @@ export default {
         { yoghurt: this.vitCalcFoods[1].counter },
       ]);
       this.q8Active = false;
-      // mySpinner.val = true;
+
+      this.mySpinner.val = true;
+      setTimeout(() => {
+        this.mySpinner.val = false;
+      }, 2800);
       this.resultsActive = true;
 
       let vitAtotal =
@@ -491,14 +495,6 @@ export default {
         this.results[7][0].milk +
         this.results[7][1].cheese +
         this.results[7][2].yoghurt;
-
-      console.log("VitA : " + vitAtotal);
-      console.log("VitB : " + vitBtotal);
-      console.log("VitC : " + vitCtotal);
-      console.log("VitD : " + vitDtotal);
-      console.log("VitE : " + vitEtotal);
-      console.log("VitK : " + vitKtotal);
-      console.log("VitCalc : " + vitCalctotal);
 
       if (this.results[0] < 3) {
         this.resultsWater = "Low";
