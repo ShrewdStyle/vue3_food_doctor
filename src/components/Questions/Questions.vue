@@ -356,6 +356,11 @@ export default {
           name: "Spinach",
           counter: 0,
         },
+        {
+          id: 3,
+          name: "Cereal Grains",
+          counter: 0,
+        },
       ],
       vitCalcFoods: [
         {
@@ -453,6 +458,7 @@ export default {
       this.results.push([
         { broccoli: this.vitKFoods[0].counter },
         { spinach: this.vitKFoods[1].counter },
+        { cerealGrains: this.vitKFoods[2].counter },
       ]);
     },
     finishQuestion() {
@@ -461,13 +467,19 @@ export default {
         { cheese: this.vitCalcFoods[1].counter },
         { yoghurt: this.vitCalcFoods[1].counter },
       ]);
+
+      window.scrollTo(0, 0);
+
       this.q8Active = false;
 
       this.mySpinner.val = true;
       setTimeout(() => {
         this.mySpinner.val = false;
       }, 2800);
-      this.resultsActive = true;
+
+      setTimeout(() => {
+        this.resultsActive = true;
+      }, 2800);
 
       let vitAtotal =
         this.results[1][0].eggs +
@@ -490,7 +502,10 @@ export default {
         this.results[5][0].nuts +
         this.results[5][1].seeds +
         this.results[5][2].vegetableOil;
-      let vitKtotal = this.results[6][0].broccoli + this.results[6][1].spinach;
+      let vitKtotal =
+        this.results[6][0].broccoli +
+        this.results[6][1].spinach +
+        this.results[6][2].cerealGrains;
       let vitCalctotal =
         this.results[7][0].milk +
         this.results[7][1].cheese +
@@ -663,7 +678,6 @@ export default {
 .container {
   text-align: center;
   padding: 1rem 4rem;
-  min-height: 100vh;
 }
 
 .questionTitle {
@@ -734,5 +748,55 @@ export default {
   cursor: pointer;
   background-color: transparent;
   transform: scale(1.1) perspective(1px);
+}
+
+@media (max-width: 770px) {
+  .container {
+    text-align: center;
+    padding: 1rem 2rem;
+    min-height: 100vh;
+  }
+}
+
+@media (max-width: 510px) {
+  .prevQ,
+  .nextQ {
+    padding: 1rem 2.2rem;
+    margin: 0 0.5rem;
+  }
+
+  .buttons {
+    padding: 2rem 0.5rem;
+  }
+
+  .container {
+    text-align: center;
+    padding: 1rem 0.9rem;
+    min-height: 100vh;
+  }
+
+  .questionTitle {
+    margin-bottom: 3rem;
+    font-size: 26px;
+    padding: 15vh 0.5rem 0 0.5rem;
+  }
+
+  .foodContainer {
+    padding: 0.5rem 0rem;
+  }
+
+  .options {
+    padding: 2rem;
+    display: inline-grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 325px) {
+  .prevQ,
+  .nextQ {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
 }
 </style>

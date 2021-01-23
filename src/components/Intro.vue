@@ -82,4 +82,42 @@
   position: relative;
   width: 300px;
 }
+
+@media (max-width: 720px) {
+  .container {
+    height: 100vh;
+    padding: 0 1rem;
+  }
+
+  .introContainer {
+    display: block;
+  }
+  .introPhotos {
+    flex: 30%;
+    text-align: center;
+  }
+  #image1 {
+    position: relative;
+    width: 200px;
+  }
+  #image2 {
+    position: relative;
+    width: 200px;
+  }
+}
+
+@media (max-width: 460px) {
+  .introText {
+    margin: 2rem auto;
+    text-align: left;
+    padding: 2rem;
+    flex: 70%;
+  }
+
+  .introPhotos {
+    flex: 30%;
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+}
 </style>

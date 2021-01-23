@@ -1,6 +1,6 @@
 <template>
-  <spinner :start="isLoading.val" />
   <nav-bar></nav-bar>
+  <spinner :start="isLoading.val" />
   <router-view></router-view>
 </template>
 
